@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlamUp Salon Booking</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#fffafc;color:#333;line-height:1.6;}
+
+/* HEADER */
+header{background:#f8d0e0;padding:1rem 2rem;text-align:center;}
+header h1{font-size:2.5rem;color:#d63384;}
+header p{margin-top:5px;}
+
+/* NAV */
+nav{display:flex;justify-content:center;background:#ffe6f0;padding:.5rem;}
+nav a{margin:0 1rem;text-decoration:none;color:#d63384;font-weight:bold;cursor:pointer;}
+
+/* SERVICES GRID */
+.services,.inner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;padding:2rem;}
+.card{background:linear-gradient(135deg,#ffe6f0);border-radius:12px;padding:1rem;text-align:center;cursor:pointer;box-shadow:0 4px 15px rgba(214,51,132,.3);transition:.3s;}
+.card:hover{transform:scale(1.05);}
+.card i{font-size:2rem;color:#d63384;margin-bottom:.5rem;}
+.card img{width:100%;height:180px;border-radius:12px;object-fit:cover;margin-bottom:8px;}
+
+/* BOOKING FORM */
+.booking-form{background:#fdf2f6;text-align:center;color:#d63384;max-width:500px;margin:2rem auto;padding:2rem;border-radius:12px;}
+.booking-form h2{
+  margin-bottom:2rem;     /* spacing */
+  font-size:1.8rem;
+  font-weight:600;
+}
+.booking-form input,.booking-form select,.booking-form button{width:100%;padding:.8rem;margin-bottom:1rem;border-radius:6px;border:1px solid #f0c4d0;}
+.booking-form button{background:#d63384;color:#fff;font-weight:bold;cursor:pointer;transition:.3s;}
+.booking-form button:hover{background:#b72b6d;}
+.confirmation{color:#d63384;text-align:center;margin-top:1rem;}
+
+/* POPUP */
+.popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;justify-content:center;align-items:center;z-index:999;}
+.popup-box{background:linear-gradient(135deg,#ffe6f0,#fff);padding:2rem;border-radius:15px;max-width:700px;width:90%;max-height:80vh;overflow-y:auto;scroll-behavior:smooth;position:relative;animation:pop .4s ease;}
+@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1;}}
+
+/* CONFETTI */
+.confetti{position:fixed;top:-20px;width:10px;height:10px;opacity:0.9;border-radius:50%;z-index:1000;animation:fall linear forwards;}
+@keyframes fall{0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(100vh) rotate(360deg);}}
+
+/* REVIEW STARS */
+.stars{color:#ff4da6;margin-top:5px;}
+
+/* BACK BUTTON IN POPUP */
+.back-btn{position:sticky;bottom:10px;margin-top:15px;background:#d63384;color:white;padding:8px 15px;border:none;border-radius:20px;cursor:pointer;display:block;margin-left:auto;margin-right:auto;}
+
+/* CONTACT */
+#contact{background:#ffe6f0;padding:2rem;text-align:center;}
+#contact h2{color:#d63384;margin-bottom:1rem;}
+.contact-info p{margin:0.3rem 0;font-weight:bold;font-size:1rem;}
+.contact-info i{color:#d63384;margin-right:8px;}
+
+/* FOOTER */
+footer{text-align:center;width:100%;padding:1rem;background:#ffe6f0;color:#d63384;font-weight:bold;position:relative;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>GlamUp Salon</h1>
+<p>Your beauty, our duty!</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- MAIN SERVICES -->
+<section id="services" class="services">
+<div class="card" onclick="openPopup('hair')">
+<img src="https://i.ibb.co/hRwKJqsC/dd298adf0b902e0f35d1c7f621e06039.jpg" alt="dd298adf0b902e0f35d1c7f621e06039" border="0">
+<h3>Hairstyles</h3>
+<p>Click to view styles</p>
+</div>
+<div class="card" onclick="openPopup('facial')">
+<img src="https://i.ibb.co/yLS4GCW/Shutterstock-1337613134-1.jpg" alt="Shutterstock-1337613134-1" border="0">
+<h3>Facials</h3>
+<p>Click to view types</p>
+</div>
+<div class="card" onclick="openPopup('manicure')">
+<img src="https://i.ibb.co/Kc0HX9Z2/manicurist-master-makes-manicure-woman-s-hands-spa-treatment-concept-1.jpg" alt="manicurist master makes manicure woman s hands spa treatment concept 1" border="0">
+<h3>Manicure</h3>
+<p>Click to view types</p>
+</div>
+<div class="card" onclick="openPopup('spa')">
+<img src="https://i.ibb.co/hFzM0RV2/candles-rose-petals-massage-table-health-spa-42548947.jpg" alt="candles-rose-petals-massage-table-health-spa-42548947" border="0">
+<h3>Spa</h3>
+<p>Click to view packages</p>
+</div>
+</section>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+<div class="popup-box">
+<h2 style="color:#d63384;">Service Options </h2>
+
+<div id="hair" class="inner-grid" style="display:none;">
+<div class="card">
+<img src="https://i.ibb.co/bRmtWBFT/Glamorous-U-Shaped-Layer-with-Soft-Volume.jpg" alt="Glamorous U Shaped Layer with Soft Volume" border="0">Layer Cut – ₹1000<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://i.ibb.co/xKj96TKN/241ad1a6e2b8a5c8f5e6abf5c09b04b1.jpg" alt="241ad1a6e2b8a5c8f5e6abf5c09b04b1" border="0">U Cut – ₹899<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><img src="https://i.ibb.co/9H5Rtxbj/2388ff35eaf05c7480c563ee970fd6fa.jpg" alt="2388ff35eaf05c7480c563ee970fd6fa" border="0">V Cut – ₹699<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://i.ibb.co/Y7Jsb2rf/6664876efe610e90fe794dc31fc767dd.jpg" alt="6664876efe610e90fe794dc31fc767dd" border="0">Bridal Hair Styling – ₹2500<div class="stars">⭐⭐⭐⭐⭐</div></div>
+</div>
+
+<div id="facial" class="inner-grid" style="display:none;">
+<div class="card"><img src="https://i.ibb.co/sp3tzvs1/clay-facial-mask-beauty-spa-27184319.jpg" alt="clay-facial-mask-beauty-spa-27184319" border="0">Rose Facial – ₹700<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://i.ibb.co/DDQG1tVS/collagen-facials-1024x1024.jpg" alt="collagen-facials-1024x1024" border="0">Collagen Facial – ₹1200<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><img src="https://i.ibb.co/svZByHTN/beautician-makes-a-golden-mask-to-rejuvenate-the-skin-to-beautiful-woman-next-to-her-are-1.jpg" alt="beautician makes a golden mask to rejuvenate the skin to beautiful woman next to her are (1)" border="0">Golden Facial – ₹1500<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://i.ibb.co/cSZ8xzxM/BRIDAL-FACIALS.jpg" alt="BRIDAL-FACIALS" border="0">Bridal Facial – ₹3000<div class="stars">⭐⭐⭐⭐⭐</div></div>
+</div>
+
+<div id="manicure" class="inner-grid" style="display:none;">
+<div class="card"><img src="https://i.ibb.co/HDMGH0bc/classic-manicure-lbb.jpg" alt="classic manicure lbb" border="0">Classic Manicure – ₹400<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://i.ibb.co/zWG8VrWn/71x4e-PTi-RLL-AC-UF1000-1000-QL80.jpg" alt="71x4e-PTi-RLL-AC-UF1000-1000-QL80" border="0">French Manicure – ₹600<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><img src="https://i.ibb.co/MyQDfyKp/002d2e8fac1f95a89b82f68f71351164.jpg" alt="002d2e8fac1f95a89b82f68f71351164" border="0">Bridal Nail Art – ₹900<div class="stars">⭐⭐⭐⭐⭐</div></div>
+</div>
+
+<div id="spa" class="inner-grid" style="display:none;">
+<div class="card"><img src="https://i.ibb.co/hRjYWZgG/Upgraded-serenity-head-spa-rockville.webp" alt="Upgraded-serenity-head-spa-rockville" border="0">Head Massage – ₹500<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://i.ibb.co/mFTbTgQy/1728562931-6707c6f331796.jpg" alt="1728562931-6707c6f331796" border="0">Body Spa – ₹1500<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><img src="https://i.ibb.co/ds7fY8jC/Lead-image-Shutterstock-com-br79fx.jpg" alt="Lead-image-Shutterstock-com-br79fx" border="0">Bridal Relax Spa – ₹3500<div class="stars">⭐⭐⭐⭐⭐</div></div>
+</div>
+
+<button class="back-btn" onclick="closePopup()">Back</button>
+</div>
+</div>
+
+<!-- BOOKING -->
+<section id="booking" class="booking-form">
+<h2>Book an Appointment</h2>
+<form id="form">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="date" id="date" required>
+<input type="time" id="time" required>
+<select id="service">
+<option>Haircut</option>
+<option>Facial</option>
+<option>Manicure</option>
+<option>Spa</option>
+</select>
+<button type="submit">Book Now</button>
+</form>
+<p class="confirmation" id="confirmation"></p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+<div class="contact-info">
+<p><i class="fas fa-envelope"></i> Email: glamupsalon@gmail.com</p>
+<p><i class="fas fa-phone-alt"></i> Phone: +91 877666220</p>
+<p><i class="fas fa-map-marker-alt"></i> Location: 123 Nehru Street, Chennai, India</p>
+</div>
+</section>
+
+<footer>
+Made with 💗 by Deeps
+</footer>
+
+<script>
+// OPEN SERVICE POPUP
+function openPopup(type){
+document.getElementById('popup').style.display="flex";
+document.querySelectorAll('.inner-grid').forEach(e=>e.style.display="none");
+document.getElementById(type).style.display="grid";
+}
+
+// CLOSE POPUP
+function closePopup(){
+document.getElementById('popup').style.display="none";
+}
+
+// BOOKING FORM + CONFETTI
+document.getElementById('form').addEventListener('submit', function(e){
+e.preventDefault();
+const name = document.getElementById('name').value;
+const phone = document.getElementById('phone').value;
+const date = document.getElementById('date').value;
+const time = document.getElementById('time').value;
+const service = document.getElementById('service').value;
+
+// SHOW CONFIRMATION
+document.getElementById('confirmation').innerText =
+`Thank you ${name}! Your ${service} appointment is booked for ${date} at ${time}.`;
+
+// CONFETTI
+createConfetti();
+
+// RESET FORM
+this.reset();
+});
+
+// CONFETTI FUNCTION
+function createConfetti(){
+for(let i=0;i<40;i++){
+let c = document.createElement("div");
+c.className="confetti";
+c.style.left = Math.random()*100+"vw";
+c.style.backgroundColor = `hsl(${Math.random()*360},100%,70%)`;
+let duration = Math.random()*2 + 3;
+c.style.animationDuration = duration+"s";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),duration*1000);
+}
+}
+</script>
+</body>
+</html>
