@@ -10,6 +10,176 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#fffafc;color:#333;line-height:1.6;}
 
+
+.hero{
+  text-align:center;
+  padding:3rem 1.5rem;
+  background:linear-gradient(135deg,#ffd6e8,#fff0f6);
+}
+
+.hero h2{color:#d63384;margin-bottom:1rem;}
+
+.btn{
+  background:#ff69b4;
+  color:white;
+  padding:0.8rem 1.5rem;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+.about{
+  padding:2rem;
+  text-align:center;
+}
+
+.about h3{color:#d63384;margin-bottom:1rem;}
+
+.overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.popup{
+  background:#fff0f6;
+  padding:2rem;
+  border-radius:18px;
+  width:90%;
+  max-width:400px;
+  text-align:center;
+  animation:drop 0.4s ease;
+}
+
+@keyframes drop{
+  from{transform:translateY(-60px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+.offer-card{
+  background:white;
+  border:1px solid #ffc2da;
+  border-radius:12px;
+  padding:1rem;
+  margin:0.6rem 0;
+}
+
+.close{
+  margin-top:1rem;
+  background:#d63384;
+  color:white;
+  border:none;
+  padding:0.6rem 1.2rem;
+  border-radius:20px;
+}
+
+.about-pink{
+  background:#ffc0da;
+  padding:40px 20px;
+  text-align:center;
+}
+
+.offer-open{
+  background:#ff1493;
+  color:white;
+  border:none;
+  padding:12px 24px;
+  border-radius:25px;
+  margin-top:15px;
+}
+/* ===== OFFER POPUP FINAL ===== */
+
+.offer-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.offer-box{
+  width:90%;
+  max-height:80%;
+  background:#fff0f6;
+  border-radius:20px;
+  padding:20px;
+  overflow-y:auto;
+  text-align:center;
+  box-shadow:0 0 20px rgba(255,0,128,0.3);
+}
+
+.offer-title{
+  color:#ff1493;
+  margin-bottom:15px;
+}
+
+.offer-card{
+  background:#ffd6ea;
+  border-radius:15px;
+  padding:18px;
+  margin:12px 0;
+  font-size:18px;
+  color:#ff1493;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.back-btn{
+  margin-top:15px;
+  background:linear-gradient(45deg,#ff1493,#ff69b4);
+  border:none;
+  color:white;
+  padding:12px 30px;
+  border-radius:25px;
+  font-size:16px;
+}
+
+/* OFFERS FULL SCREEN */
+#offersPage{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:white;
+  z-index:99999;
+  display:none;
+  overflow-y:auto;
+  padding:20px;
+}
+
+.cards{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin-top:20px;
+}
+
+.card{
+  background:#ffe0ef;
+  padding:18px;
+  border-radius:15px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.back-btn{
+  background:#ff1493;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:20px;
+}
+
 /* HEADER */
 header{background:#f8d0e0;padding:1rem 2rem;text-align:center;}
 header h1{font-size:2.5rem;color:#d63384;}
@@ -59,8 +229,81 @@ nav a{margin:0 1rem;text-decoration:none;color:#d63384;font-weight:bold;cursor:p
 .contact-info p{margin:0.3rem 0;font-weight:bold;font-size:1rem;}
 .contact-info i{color:#d63384;margin-right:8px;}
 
+.review-box{
+  text-align:center;
+  margin:20px auto;
+  padding:30px 20px;
+  background: #ffc0da; /* soft pink background */
+  border-radius: 15px;
+  max-width: 500px;
+}
+
+.review-stars{
+  font-size:34px;
+  color:#FFD700; /* golden stars */
+  letter-spacing:6px;
+}
+
+.review-count{
+  font-size:18px;
+  color:#d63384; /* dark pink text */
+  font-weight:600;
+  margin-top:10px;
+}
+/* Testimonial Slider */
+.testimonial-slider {
+  display:flex;
+  overflow:hidden;
+  width:100%;
+  justify-content:center;
+  gap:1rem;
+}
+.slide {
+  min-width:300px;
+  background:white;
+  padding:1rem 1.5rem;
+  border-radius:15px;
+  box-shadow:0 4px 15px rgba(214,51,132,.2);
+  font-weight:500;
+  color:#d63384;
+  transition:transform 0.5s ease;
+}
+
+/* Golden Stars Animation */
+.review-star {
+  display:inline-block;
+  color:gold;
+  font-size:1.2rem;
+  margin-left:4px;
+  animation: twinkle 1.5s infinite alternate;
+}
+@keyframes twinkle {
+  0% {transform: scale(1); opacity:0.7;}
+  50% {transform: scale(1.3); opacity:1;}
+  100% {transform: scale(1); opacity:0.7;}
+}
+
+/* Ribbon / Badge */
+.ribbon {
+  width:100px;
+  height:25px;
+  background:#ff1493;
+  color:white;
+  text-align:center;
+  font-weight:bold;
+  font-size:0.8rem;
+  position:absolute;
+  top:10px;
+  left:-10px;
+  transform:rotate(-25deg);
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+}
+.card {
+  position:relative; /* required for ribbon */
+}
 /* FOOTER */
 footer{text-align:center;width:100%;padding:1rem;background:#ffe6f0;color:#d63384;font-weight:bold;position:relative;}
+
 </style>
 </head>
 <body>
@@ -76,26 +319,78 @@ footer{text-align:center;width:100%;padding:1rem;background:#ffe6f0;color:#d6338
 <a href="#booking">Booking</a>
 <a href="#contact">Contact</a>
 </nav>
+<!-- ===== HOME FRONT SECTION ===== -->
+<section class="hero">
+  <h2>Welcome Beautiful ✨</h2>
+  <p>
+    Discover luxury styling, glowing facials, relaxing spa sessions,
+    and stunning bridal makeovers — all designed to make you shine with confidence.
+    </p>
 
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-pink">
+  <h2>About GlamUp Salon</h2>
+  <p>
+    GlamUp Salon enhances your natural beauty with expert styling,
+    rejuvenating facials, relaxing spa sessions, and bridal makeovers.
+    We create a warm environment where confidence and elegance shine
+    every time you visit.
+  </p>
+
+<button onclick="openOffer()" class="btn">
+View Special Offers
+</button>
+</section>
+
+
+<!-- ===== OFFER POPUP ===== -->
+<div class="offer-overlay" id="offerPopup">
+
+  <div class="offer-box">
+
+    <h2 class="offer-title">Exclusive Offers 💖</h2>
+
+    <div class="offer-card">
+      First Time Customers<br>
+      <b>Flat 40% OFF</b> on any service
+    </div>
+
+    <div class="offer-card">
+      Regular Customers<br>
+      <b>Get 70% OFF</b> loyalty discount
+    </div>
+
+    <div class="offer-card">
+      Bridal Booking<br>
+      Free Spa Session Included
+    </div>
+
+    <button class="back-btn" onclick="closeOffer()">← Back</button>
+
+  </div>
+
+</div>
 <!-- MAIN SERVICES -->
 <section id="services" class="services">
 <div class="card" onclick="openPopup('hair')">
-<img src="https://i.ibb.co/hRwKJqsC/dd298adf0b902e0f35d1c7f621e06039.jpg" alt="dd298adf0b902e0f35d1c7f621e06039" border="0">
+<img src="https://image2url.com/r2/default/images/1770748594878-9927e3c9-ff59-4c7c-bb08-294fd4af695a.jpg" alt="dd298adf0b902e0f35d1c7f621e06039" border="0">
 <h3>Hairstyles</h3>
 <p>Click to view styles</p>
 </div>
 <div class="card" onclick="openPopup('facial')">
-<img src="https://i.ibb.co/yLS4GCW/Shutterstock-1337613134-1.jpg" alt="Shutterstock-1337613134-1" border="0">
+<img src="https://image2url.com/r2/default/images/1770748925196-1a3ad256-7bf9-4db8-8564-a71fbb071bde.jpg" alt="Shutterstock-1337613134-1" border="0">
 <h3>Facials</h3>
 <p>Click to view types</p>
 </div>
 <div class="card" onclick="openPopup('manicure')">
-<img src="https://i.ibb.co/Kc0HX9Z2/manicurist-master-makes-manicure-woman-s-hands-spa-treatment-concept-1.jpg" alt="manicurist master makes manicure woman s hands spa treatment concept 1" border="0">
+<img src="https://image2url.com/r2/default/images/1770749051192-8928c4ad-052e-4a7b-8b81-c2e38ce43b02.jpg" alt="manicurist master makes manicure woman s hands spa treatment concept 1" border="0">
 <h3>Manicure</h3>
 <p>Click to view types</p>
 </div>
 <div class="card" onclick="openPopup('spa')">
-<img src="https://i.ibb.co/hFzM0RV2/candles-rose-petals-massage-table-health-spa-42548947.jpg" alt="candles-rose-petals-massage-table-health-spa-42548947" border="0">
+<img src="https://image2url.com/r2/default/images/1770749108046-76208806-b525-4357-96c3-6b8bd71dc9ef.jpg" alt="candles-rose-petals-massage-table-health-spa-42548947" border="0">
 <h3>Spa</h3>
 <p>Click to view packages</p>
 </div>
@@ -107,36 +402,111 @@ footer{text-align:center;width:100%;padding:1rem;background:#ffe6f0;color:#d6338
 <h2 style="color:#d63384;">Service Options </h2>
 
 <div id="hair" class="inner-grid" style="display:none;">
-<div class="card">
-<img src="https://i.ibb.co/bRmtWBFT/Glamorous-U-Shaped-Layer-with-Soft-Volume.jpg" alt="Glamorous U Shaped Layer with Soft Volume" border="0">Layer Cut – ₹1000<div class="stars">⭐⭐⭐⭐☆</div></div>
-<div class="card"><img src="https://i.ibb.co/xKj96TKN/241ad1a6e2b8a5c8f5e6abf5c09b04b1.jpg" alt="241ad1a6e2b8a5c8f5e6abf5c09b04b1" border="0">U Cut – ₹899<div class="stars">⭐⭐⭐⭐⭐</div></div>
-<div class="card"><img src="https://i.ibb.co/9H5Rtxbj/2388ff35eaf05c7480c563ee970fd6fa.jpg" alt="2388ff35eaf05c7480c563ee970fd6fa" border="0">V Cut – ₹699<div class="stars">⭐⭐⭐⭐☆</div></div>
-<div class="card"><img src="https://i.ibb.co/Y7Jsb2rf/6664876efe610e90fe794dc31fc767dd.jpg" alt="6664876efe610e90fe794dc31fc767dd" border="0">Bridal Hair Styling – ₹2500<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><div class="ribbon">Best Seller</div>
+<img src="https://image2url.com/r2/default/images/1770749312718-db5c364d-7d14-4606-9962-302ea222199e.jpg" alt="Glamorous U Shaped Layer with Soft Volume" border="0">Layer Cut – ₹1000<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://image2url.com/r2/default/images/1770749347266-bddaacbb-3670-4bd7-b299-a64f0df35481.jpg" alt="241ad1a6e2b8a5c8f5e6abf5c09b04b1" border="0">U Cut – ₹899<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><img src="https://image2url.com/r2/default/images/1770749377392-e324704c-cfd1-4459-aea1-786452316891.jpg" alt="2388ff35eaf05c7480c563ee970fd6fa" border="0">V Cut – ₹699<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><div class="ribbon">Best Seller</div><img src="https://image2url.com/r2/default/images/1770749410275-3a75ab9e-8440-45dc-a173-61e998e1c519.jpg" alt="6664876efe610e90fe794dc31fc767dd" border="0">Bridal Hair Styling – ₹2500<div class="stars">⭐⭐⭐⭐⭐</div></div>
 </div>
 
 <div id="facial" class="inner-grid" style="display:none;">
-<div class="card"><img src="https://i.ibb.co/sp3tzvs1/clay-facial-mask-beauty-spa-27184319.jpg" alt="clay-facial-mask-beauty-spa-27184319" border="0">Rose Facial – ₹700<div class="stars">⭐⭐⭐⭐☆</div></div>
-<div class="card"><img src="https://i.ibb.co/DDQG1tVS/collagen-facials-1024x1024.jpg" alt="collagen-facials-1024x1024" border="0">Collagen Facial – ₹1200<div class="stars">⭐⭐⭐⭐⭐</div></div>
-<div class="card"><img src="https://i.ibb.co/svZByHTN/beautician-makes-a-golden-mask-to-rejuvenate-the-skin-to-beautiful-woman-next-to-her-are-1.jpg" alt="beautician makes a golden mask to rejuvenate the skin to beautiful woman next to her are (1)" border="0">Golden Facial – ₹1500<div class="stars">⭐⭐⭐⭐☆</div></div>
-<div class="card"><img src="https://i.ibb.co/cSZ8xzxM/BRIDAL-FACIALS.jpg" alt="BRIDAL-FACIALS" border="0">Bridal Facial – ₹3000<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><img src="https://image2url.com/r2/default/images/1770749459598-8a4541f8-b429-47b2-8fe0-d9decaf9d20c.jpg" alt="clay-facial-mask-beauty-spa-27184319" border="0">Rose Facial – ₹700<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><div class="ribbon">Best Seller</div><img src="https://image2url.com/r2/default/images/1770749498338-9cfa33da-6330-4610-99e2-2034df0d815b.jpg" alt="collagen-facials-1024x1024" border="0">Collagen Facial – ₹1200<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><img src="https://image2url.com/r2/default/images/1770749547569-1498ef6d-be82-4835-b708-e357dc373f8a.jpg" alt="beautician makes a golden mask to rejuvenate the skin to beautiful woman next to her are (1)" border="0">Golden Facial – ₹1500<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://image2url.com/r2/default/images/1770749590858-bfac923d-dab6-4eaf-8dd1-3734e417bdec.jpg" alt="BRIDAL-FACIALS" border="0">Bridal Facial – ₹3000<div class="stars">⭐⭐⭐⭐⭐</div></div>
 </div>
 
 <div id="manicure" class="inner-grid" style="display:none;">
-<div class="card"><img src="https://i.ibb.co/HDMGH0bc/classic-manicure-lbb.jpg" alt="classic manicure lbb" border="0">Classic Manicure – ₹400<div class="stars">⭐⭐⭐⭐☆</div></div>
-<div class="card"><img src="https://i.ibb.co/zWG8VrWn/71x4e-PTi-RLL-AC-UF1000-1000-QL80.jpg" alt="71x4e-PTi-RLL-AC-UF1000-1000-QL80" border="0">French Manicure – ₹600<div class="stars">⭐⭐⭐⭐⭐</div></div>
-<div class="card"><img src="https://i.ibb.co/MyQDfyKp/002d2e8fac1f95a89b82f68f71351164.jpg" alt="002d2e8fac1f95a89b82f68f71351164" border="0">Bridal Nail Art – ₹900<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"><img src="https://image2url.com/r2/default/images/1770749650557-308e3385-0156-43e6-8e16-87c1400ca44a.jpg" alt="classic manicure" border="0">Classic Manicure – ₹400<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://image2url.com/r2/default/images/1770749688542-dad440d5-8a4b-4939-b9a6-25b2bd556030.jpg" alt="71x4e-PTi-RLL-AC-UF1000-1000-QL80" border="0">French Manicure – ₹600<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"> <div class="ribbon">Best Seller</div><img src="https://image2url.com/r2/default/images/1770749723418-3c61e899-a923-42a6-9d69-9c136808a1bb.jpg" alt="002d2e8fac1f95a89b82f68f71351164" border="0">Bridal Nail Art – ₹900<div class="stars">⭐⭐⭐⭐⭐</div></div>
 </div>
 
 <div id="spa" class="inner-grid" style="display:none;">
-<div class="card"><img src="https://i.ibb.co/hRjYWZgG/Upgraded-serenity-head-spa-rockville.webp" alt="Upgraded-serenity-head-spa-rockville" border="0">Head Massage – ₹500<div class="stars">⭐⭐⭐⭐☆</div></div>
-<div class="card"><img src="https://i.ibb.co/mFTbTgQy/1728562931-6707c6f331796.jpg" alt="1728562931-6707c6f331796" border="0">Body Spa – ₹1500<div class="stars">⭐⭐⭐⭐⭐</div></div>
-<div class="card"><img src="https://i.ibb.co/ds7fY8jC/Lead-image-Shutterstock-com-br79fx.jpg" alt="Lead-image-Shutterstock-com-br79fx" border="0">Bridal Relax Spa – ₹3500<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"> <div class="ribbon">Best Seller</div><img src="https://image2url.com/r2/default/images/1770749757443-4dcaa562-c9c6-4fa3-8e20-959940a5a3e4.webp" alt="Upgraded-serenity-head-spa-rockville" border="0">Head Massage – ₹500<div class="stars">⭐⭐⭐⭐☆</div></div>
+<div class="card"><img src="https://image2url.com/r2/default/images/1770749805383-5b4bb6e4-ca2a-4d00-be28-5f76622609f7.png" alt="1728562931-6707c6f331796" border="0">Body Spa – ₹1500<div class="stars">⭐⭐⭐⭐⭐</div></div>
+<div class="card"> <div class="ribbon">Best Seller</div><img src="https://image2url.com/r2/default/images/1770749850584-e1f1abc0-ceda-49c6-a69e-785cfbcbfa4a.jpg" alt="Lead-image-Shutterstock-com-br79fx" border="0">Bridal Relax Spa – ₹3500<div class="stars">⭐⭐⭐⭐⭐</div></div>
 </div>
 
 <button class="back-btn" onclick="closePopup()">Back</button>
 </div>
 </div>
+<h2 style="text-align:center;color:#d63384;">Overall Customer Rating</h2>
 
+<div class="review-stars" style="text-align:center;">
+⭐⭐⭐⭐☆
+</div>
+<div class="review-count" style="text-align:center;">4K+ Happy Customers</div>
+</div>
+<!-- ===== CUSTOMER REVIEWS SLIDER ===== -->
+<section id="reviews" style="background:#ffc0da; padding:2.5rem 1rem; text-align:center; border-radius:15px; margin:2rem;">
+  <h2 style="color:#d63384; margin-bottom:1.5rem;">What Our Customers Say 💖</h2>
+  
+  <div class="review-slider" style="position:relative; overflow:hidden; max-width:800px; margin:0 auto;">
+    
+    <div class="review-slide active" style="padding:1rem;">
+      <p style="font-size:1rem; margin-bottom:0.8rem;">"Amazing service! My hair and nails look stunning. Highly recommend GlamUp Salon!"</p>
+      <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      <p style="font-weight:bold; margin-top:0.5rem;">– Anika</p>
+    </div>
+
+    <div class="review-slide" style="padding:1rem;">
+      <p style="font-size:1rem; margin-bottom:0.8rem;">"Luxurious spa experience! Left feeling refreshed and glowing. Love the ambience."</p>
+      <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      <p style="font-weight:bold; margin-top:0.5rem;">– Meera</p>
+    </div>
+
+    <div class="review-slide" style="padding:1rem;">
+      <p style="font-size:1rem; margin-bottom:0.8rem;">"Bridal makeover was perfect! The team made me feel confident and beautiful."</p>
+      <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      <p style="font-weight:bold; margin-top:0.5rem;">– Priya</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* REVIEW SLIDER STYLES */
+.review-stars {
+  color: gold;
+  font-size: 1.4rem; /* Big gold stars */
+  margin-bottom: 0.5rem;
+}
+
+.review-slide {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.review-slide.active {
+  display: block;
+}
+</style>
+
+<script>
+// REVIEW SLIDER AUTOPLAY
+let currentSlide = 0;
+const slides = document.querySelectorAll('.review-slide');
+
+function showSlide(index){
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if(i === index) slide.classList.add('active');
+  });
+}
+
+function nextSlide(){
+  currentSlide++;
+  if(currentSlide >= slides.length) currentSlide = 0;
+  showSlide(currentSlide);
+}
+
+// Show first slide
+showSlide(currentSlide);
+
+// Autoplay every 3 seconds
+setInterval(nextSlide, 3000);
+</script>
 <!-- BOOKING -->
 <section id="booking" class="booking-form">
 <h2>Book an Appointment</h2>
@@ -160,11 +530,49 @@ footer{text-align:center;width:100%;padding:1rem;background:#ffe6f0;color:#d6338
 <section id="contact">
 <h2>Contact Us</h2>
 <div class="contact-info">
-<p><i class="fas fa-envelope"></i> Email: glamupsalon@gmail.com</p>
-<p><i class="fas fa-phone-alt"></i> Phone: +91 877666220</p>
-<p><i class="fas fa-map-marker-alt"></i> Location: 123 Nehru Street, Chennai, India</p>
+
+<p>
+  <i class="fa-solid fa-envelope"></i>
+  <a href="mailto:glamupsalon@gmail.com">glamupsalon@gmail.com
+  </a>
+</p>
+
+<p>
+  <i class="fa-solid fa-phone"></i>
+  <a href="tel:+916380691228">
+    +91 6380691228
+  </a>
+</p>
+
+<p>
+  <i class="fa-solid fa-location-dot"></i>
+  <a href="https://maps.google.com/?q=123+Nehru+Street+Chennai+India" target="_blank">
+    123 Nehru Street, Chennai, India
+  </a>
+</p>
+
+  <i class="fab fa-whatsapp"></i>
+ <a href="https://api.whatsapp.com/send?phone=916380691228&text=Hello%20I%20want%20to%20book%20an%20appointment"
+target="_blank">
+
+<button style="
+background:#ff4da6;
+color:white;
+border:none;
+padding:14px 26px;
+font-size:16px;
+border-radius:30px;
+cursor:pointer;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+">
+📱 Chat on WhatsApp
+</button>
+
+</a>
+</p>
 </div>
 </section>
+
 
 <footer>
 Made with 💗 by Deeps
@@ -216,6 +624,46 @@ document.body.appendChild(c);
 setTimeout(()=>c.remove(),duration*1000);
 }
 }
+</script>
+<script>
+function showOffers(){
+  document.getElementById("offersPage").style.display="block";
+}
+
+function hideOffers(){
+  document.getElementById("offersPage").style.display="none";
+}
+</script>
+<script>
+function openOffer(){
+  document.getElementById("offerPopup").style.display="flex";
+}
+
+function closeOffer(){
+  document.getElementById("offerPopup").style.display="none";
+}
+</script>
+<script>
+function openOffer(){
+  document.getElementById("offerPopup").style.display="flex";
+}
+
+function closeOffer(){
+  document.getElementById("offerPopup").style.display="none";
+}
+</script>
+
+<!-- ===== PASTE THE TESTIMONIAL SLIDER JS HERE ===== -->
+<script>
+// Simple testimonial slider auto-scroll
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+function showSlides() {
+  slides.forEach((s,i)=> s.style.transform = `translateX(-${slideIndex*320}px)`);
+  slideIndex++;
+  if(slideIndex >= slides.length) slideIndex = 0;
+}
+setInterval(showSlides, 2000); // every 2 sec
 </script>
 </body>
 </html>
